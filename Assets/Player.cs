@@ -6,6 +6,7 @@ using UnityStandardAssets.CrossPlatformInput;
 public class Player : MonoBehaviour
 {
     [Tooltip("m/s")][SerializeField] float xSpeed = 10f;
+    [Tooltip("m")] [SerializeField] float xBound = 8f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +21,12 @@ public class Player : MonoBehaviour
 
         //in meters,  m = % * m/s * s
         float xOffset = xThrow * xSpeed * Time.deltaTime;
-        float rawNewXPosition = transform.localPosition.x + xOffset;
+        float rawXPosition = transform.localPosition.x + xOffset;
+        float clampedXPosition = Mathf.Clamp(rawXPosition, -xBound, xBound);
 
-        transform.localPosition = new Vector3(rawNewXPosition, transform.localPosition.y, transform.localPosition.z);
+        transform.localPosition = new Vector3(
+            clampedXPosition, 
+            transform.localPosition.y, 
+            transform.localPosition.z);
     }
 }
