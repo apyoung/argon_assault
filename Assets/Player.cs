@@ -5,8 +5,13 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
-    [Tooltip("m/s")][SerializeField] float xSpeed = 10f;
+    [Tooltip("m/s")][SerializeField] float xSpeed = 16f;
+    [Tooltip("m/s")][SerializeField] float ySpeed = 12f;
     [Tooltip("m")] [SerializeField] float xBound = 8f;
+    [Tooltip("m")] [SerializeField] float yBound = 4.5f;
+
+    float clampedXPosition;
+    float clampedYPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -17,16 +22,32 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        calculateXPosition();
+        calculateYPosition();
+
+        transform.localPosition = new Vector3(
+            clampedXPosition, 
+            clampedYPosition, 
+            transform.localPosition.z);
+    }
+
+    private void calculateXPosition()
+    {
         float xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 
         //in meters,  m = % * m/s * s
         float xOffset = xThrow * xSpeed * Time.deltaTime;
         float rawXPosition = transform.localPosition.x + xOffset;
-        float clampedXPosition = Mathf.Clamp(rawXPosition, -xBound, xBound);
+        clampedXPosition = Mathf.Clamp(rawXPosition, -xBound, xBound);
+    }
 
-        transform.localPosition = new Vector3(
-            clampedXPosition, 
-            transform.localPosition.y, 
-            transform.localPosition.z);
+    private void calculateYPosition()
+    {
+        float yThrow = CrossPlatformInputManager.GetAxis("Vertical");
+
+        //in meters,  m = % * m/s * s
+        float yOffset = yThrow * ySpeed * Time.deltaTime;
+        float rawYPosition = transform.localPosition.y + yOffset;
+        clampedYPosition = Mathf.Clamp(rawYPosition, -yBound, yBound);
     }
 }
