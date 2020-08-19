@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
@@ -22,13 +23,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ProcessTranslation();
+        ProcessRotation();
+    }
+
+    private void ProcessRotation()
+    {
+        transform.localRotation = Quaternion.Euler(-30f, -30f, 0f);
+    }
+
+    private void ProcessTranslation()
+    {
         calculateXPosition();
         calculateYPosition();
-
-        transform.localPosition = new Vector3(
-            clampedXPosition, 
-            clampedYPosition, 
-            transform.localPosition.z);
+        moveShip();
     }
 
     private void calculateXPosition()
@@ -49,5 +57,13 @@ public class Player : MonoBehaviour
         float yOffset = yThrow * ySpeed * Time.deltaTime;
         float rawYPosition = transform.localPosition.y + yOffset;
         clampedYPosition = Mathf.Clamp(rawYPosition, -yBound, yBound);
+    }
+
+    private void moveShip()
+    {
+        transform.localPosition = new Vector3(
+                    clampedXPosition,
+                    clampedYPosition,
+                    transform.localPosition.z);
     }
 }
