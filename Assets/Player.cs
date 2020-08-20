@@ -9,8 +9,13 @@ public class Player : MonoBehaviour
     [Tooltip("m/s")][SerializeField] float xSpeed = 16f;
     [Tooltip("m/s")][SerializeField] float ySpeed = 12f;
     [Tooltip("m")] [SerializeField] float xBound = 8f;
-    [Tooltip("m")] [SerializeField] float yBound = 4.5f;
+    [Tooltip("m")] [SerializeField] float yBound = 5f;
+    [SerializeField] float positionPitchFactor = -2.5f;
+    [SerializeField] float controlPitchFactor = -20f;
+    [SerializeField] float positionYawFactor = 3f;
+    [SerializeField] float controlRollFactor = -20f;
 
+    float xThrow, yThrow;
     float clampedXPosition;
     float clampedYPosition;
 
@@ -29,7 +34,10 @@ public class Player : MonoBehaviour
 
     private void ProcessRotation()
     {
-        transform.localRotation = Quaternion.Euler(-30f, -30f, 0f);
+        float pitch = transform.localPosition.y * positionPitchFactor + yThrow * controlPitchFactor;
+        float yaw = transform.localPosition.x * positionYawFactor;
+        float roll = xThrow * controlRollFactor;
+        transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
     private void ProcessTranslation()
@@ -41,7 +49,7 @@ public class Player : MonoBehaviour
 
     private void calculateXPosition()
     {
-        float xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
+        xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 
         //in meters,  m = % * m/s * s
         float xOffset = xThrow * xSpeed * Time.deltaTime;
@@ -51,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void calculateYPosition()
     {
-        float yThrow = CrossPlatformInputManager.GetAxis("Vertical");
+        yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
         //in meters,  m = % * m/s * s
         float yOffset = yThrow * ySpeed * Time.deltaTime;
