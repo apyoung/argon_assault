@@ -69,9 +69,6 @@ public class Player : MonoBehaviour
 
     private void moveShip()
     {
-        transform.localPosition = new Vector3(
-                    clampedXPosition,
-                    clampedYPosition,
-                    transform.localPosition.z);
+        transform.localPosition = new Vector3(clampedXPosition,clampedYPosition,transform.localPosition.z);
     }
 }
