@@ -23,12 +23,21 @@ public class PlayerController : MonoBehaviour
     float xThrow, yThrow;
     float clampedXPosition;
     float clampedYPosition;
+    bool isControlEnabled = true;
 
     // Update is called once per frame
     void Update()
     {
-        ProcessTranslation();
-        ProcessRotation();
+        if (isControlEnabled)
+        {
+            ProcessTranslation();
+            ProcessRotation();
+        }
+    }
+
+    void OnPlayerDeath() //called by string reference
+    {
+        isControlEnabled = false;
     }
 
     private void ProcessRotation()
