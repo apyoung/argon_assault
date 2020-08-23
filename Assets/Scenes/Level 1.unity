@@ -613,6 +613,12 @@ Transform:
   m_Father: {fileID: 56733314}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1407312701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4190519611612475934, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1898289453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1622637622
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,6 +712,90 @@ Transform:
   m_Father: {fileID: 56733314}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1898289453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4000013368906421}
+    m_Modifications:
+    - target: {fileID: 4190519611612475933, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475934, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_Name
+      value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475934, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475938, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4190519611612475939, guid: 9d8c7dbe09fc61f4e814730c91011bca,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d8c7dbe09fc61f4e814730c91011bca, type: 3}
 --- !u!1 &1962581183
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,6 +911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6ab62f5a3a0faf45920006d38e9288f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelLoadDelay: 1
+  deathFX: {fileID: 1407312701}
 --- !u!4 &4000013368906421 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4117388266356854445, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
