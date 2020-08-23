@@ -1,40 +1,34 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    [Tooltip("m/s")][SerializeField] float xSpeed = 16f;
-    [Tooltip("m/s")][SerializeField] float ySpeed = 12f;
-    [Tooltip("m")] [SerializeField] float xBound = 8f;
-    [Tooltip("m")] [SerializeField] float yBound = 5f;
+    [Header("General")]
+    [Tooltip("m/s")][SerializeField] float controlSpeed = 16f;
+    [Tooltip("m")] [SerializeField] float xRange = 8f;
+    [Tooltip("m")] [SerializeField] float yRange = 5f;
+
+    [Header("Screen-Position Based")]
     [SerializeField] float positionPitchFactor = -2.5f;
-    [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float positionYawFactor = 3f;
+
+    [Header("Control-Throw Based")]
+    [SerializeField] float controlPitchFactor = -20f;
     [SerializeField] float controlRollFactor = -20f;
 
     float xThrow, yThrow;
     float clampedXPosition;
     float clampedYPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         ProcessTranslation();
         ProcessRotation();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        print("Player triggered something");
     }
 
     private void ProcessRotation()
@@ -57,9 +51,9 @@ public class Player : MonoBehaviour
         xThrow = CrossPlatformInputManager.GetAxis("Horizontal");
 
         //in meters,  m = % * m/s * s
-        float xOffset = xThrow * xSpeed * Time.deltaTime;
+        float xOffset = xThrow * controlSpeed * Time.deltaTime;
         float rawXPosition = transform.localPosition.x + xOffset;
-        clampedXPosition = Mathf.Clamp(rawXPosition, -xBound, xBound);
+        clampedXPosition = Mathf.Clamp(rawXPosition, -xRange, xRange);
     }
 
     private void calculateYPosition()
@@ -67,9 +61,9 @@ public class Player : MonoBehaviour
         yThrow = CrossPlatformInputManager.GetAxis("Vertical");
 
         //in meters,  m = % * m/s * s
-        float yOffset = yThrow * ySpeed * Time.deltaTime;
+        float yOffset = yThrow * controlSpeed * Time.deltaTime;
         float rawYPosition = transform.localPosition.y + yOffset;
-        clampedYPosition = Mathf.Clamp(rawYPosition, -yBound, yBound);
+        clampedYPosition = Mathf.Clamp(rawYPosition, -yRange, yRange);
     }
 
     private void moveShip()
