@@ -37,5 +37,4 @@ public class ScoreBoard : MonoBehaviour
     }
 
     //Change A
-    //Change B
 }
