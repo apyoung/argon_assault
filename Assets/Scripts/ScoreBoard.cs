@@ -35,4 +35,6 @@ public class ScoreBoard : MonoBehaviour
         this.score += scoreByTime;
         updateScore();
     }
+
+    //Change A
 }
