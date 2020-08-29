@@ -461,6 +461,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7afa73fcb1fce4cb4b65361a29bcbd, type: 3}
+--- !u!1 &188074569 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4120181426697893597, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4120181426848832536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &668002418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1099,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1497762932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7626284165383243753, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
+    type: 3}
+  m_PrefabInstance: {fileID: 4120181426848832536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1622637622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,8 +1575,23 @@ PrefabInstance:
     - target: {fileID: 4120181426697893597, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
         type: 3}
       propertyPath: m_Name
-      value: Bullets Left
+      value: Gun Left
       objectReference: {fileID: 0}
+    - target: {fileID: 4120181427641629878, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
+        type: 3}
+      propertyPath: guns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120181427641629878, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
+        type: 3}
+      propertyPath: guns.Array.data[0]
+      value: 
+      objectReference: {fileID: 188074569}
+    - target: {fileID: 4120181427641629878, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
+        type: 3}
+      propertyPath: guns.Array.data[1]
+      value: 
+      objectReference: {fileID: 1497762932}
     - target: {fileID: 4120334802795130215, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
         type: 3}
       propertyPath: m_Name
@@ -1598,7 +1625,7 @@ PrefabInstance:
     - target: {fileID: 7626284165383243753, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
         type: 3}
       propertyPath: m_Name
-      value: Bullets Right
+      value: Gun Right
       objectReference: {fileID: 0}
     - target: {fileID: 8517061225690051795, guid: 8086bffe4b2f18340b253c6f0bdde9e6,
         type: 3}
