@@ -31,5 +31,3 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
-//new comment
